@@ -1,0 +1,153 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "BIBLIOTEC API Tests",
+    "dateExported": "2024-01-15",
+    "version": "1.0",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "register",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "01 - Registrar Usuário",
+            "url": "http://localhost:3000/api/register",
+            "method": "POST",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao@teste.com\",\n  \"password\": \"senha123\"\n}"
+            }
+        },
+        {
+            "_id": "login",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "02 - Login",
+            "url": "http://localhost:3000/api/login",
+            "method": "POST",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"joao@teste.com\",\n  \"password\": \"senha123\"\n}"
+            }
+        },
+        {
+            "_id": "get-books",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "03 - Listar Livros",
+            "url": "http://localhost:3000/api/books",
+            "method": "GET"
+        },
+        {
+            "_id": "get-book",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "04 - Detalhes do Livro",
+            "url": "http://localhost:3000/api/books/1",
+            "method": "GET"
+        },
+        {
+            "_id": "favorites",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "05 - Favoritar Livro",
+            "url": "http://localhost:3000/api/favorites/1",
+            "method": "POST",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer SEU_TOKEN_AQUI"
+                }
+            ]
+        },
+        {
+            "_id": "get-favorites",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "06 - Meus Favoritos",
+            "url": "http://localhost:3000/api/favorites",
+            "method": "GET",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer SEU_TOKEN_AQUI"
+                }
+            ]
+        },
+        {
+            "_id": "reserve",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "07 - Reservar Livro",
+            "url": "http://localhost:3000/api/reservations/1",
+            "method": "POST",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer SEU_TOKEN_AQUI"
+                }
+            ]
+        },
+        {
+            "_id": "get-reservations",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "08 - Minhas Reservas",
+            "url": "http://localhost:3000/api/reservations",
+            "method": "GET",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer SEU_TOKEN_AQUI"
+                }
+            ]
+        },
+        {
+            "_id": "profile",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "09 - Meu Perfil",
+            "url": "http://localhost:3000/api/profile",
+            "method": "GET",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer SEU_TOKEN_AQUI"
+                }
+            ]
+        },
+        {
+            "_id": "update-profile",
+            "colId": "bibliotec",
+            "containerId": "",
+            "name": "10 - Atualizar Perfil",
+            "url": "http://localhost:3000/api/profile",
+            "method": "PUT",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer SEU_TOKEN_AQUI"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"João Silva Atualizado\",\n  \"phone\": \"(11) 99999-9999\"\n}"
+            }
+        }
+    ]
+}

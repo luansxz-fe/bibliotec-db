@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIBLIOTEC - Biblioteca Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <i class="fas fa-book"></i>
+                <span>BIBLIOTEC</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Início</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#favoritos">Favoritos</a>
+                <a href="#reservas">Reservas</a>
+            </div>
+            <div class="user-menu">
+                <button id="loginBtn" onclick="window.location.href='login.html'">
+                    <i class="fas fa-sign-in-alt"></i> Entrar
+                </button>
+                <div id="userMenu" style="display: none;">
+                    <button class="user-btn" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                        <span id="userName"></span>
+                    </button>
+                    <div class="dropdown">
+                        <a href="perfil.html">Meu Perfil</a>
+                        <button onclick="logout()">Sair</button>
+                        <button onclick="deleteAccount()" class="delete">Excluir Conta</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bem-vindo ao BIBLIOTEC</h1>
+            <p>Encontre, reserve e leia os melhores livros da nossa biblioteca digital</p>
+            <a href="#catalogo" class="btn">Explorar Livros</a>
+        </div>
+    </section>
+
+    <!-- Catálogo -->
+    <section id="catalogo" class="catalogo">
+        <h2>Catálogo de Livros</h2>
+        <div class="filtros">
+            <input type="text" id="searchInput" placeholder="Buscar livro ou autor...">
+            <select id="categoryFilter">
+                <option value="all">Todas categorias</option>
+                <option value="Romance">Romance</option>
+                <option value="Ficção">Ficção</option>
+                <option value="Fantasia">Fantasia</option>
+                <option value="Clássico">Clássico</option>
+                <option value="Ficção Científica">Ficção Científica</option>
+                <option value="Drama">Drama</option>
+                <option value="Suspense">Suspense</option>
+                <option value="Biografia">Biografia</option>
+                <option value="Poesia">Poesia</option>
+                <option value="História">História</option>
+                <option value="Autoajuda">Autoajuda</option>
+            </select>
+        </div>
+        <div id="bookGrid" class="book-grid">
+            <!-- Livros serão carregados aqui -->
+        </div>
+    </section>
+
+    <!-- Favoritos -->
+    <section id="favoritos" class="favoritos">
+        <h2>Meus Favoritos</h2>
+        <div id="favoritesList" class="favorites-list">
+            <p class="empty-message">Faça login para ver seus livros favoritos</p>
+        </div>
+    </section>
+
+    <!-- Reservas -->
+    <section id="reservas" class="reservas">
+        <h2>Minhas Reservas</h2>
+        <div id="reservationsList" class="reservations-list">
+            <p class="empty-message">Faça login para ver suas reservas</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 BIBLIOTEC - Biblioteca Digital | Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script>
+        // Inicializar app
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof app !== 'undefined') {
+                app.init();
+            }
+        });
+        
+        // Verificar autenticação
+        const user = localStorage.getItem('bibliotec_user');
+        if (user) {
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('userMenu').style.display = 'block';
+            document.getElementById('userName').textContent = JSON.parse(user).name.split(' ')[0];
+        }
+    </script>
+</body>
+</html>
